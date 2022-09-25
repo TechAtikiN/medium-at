@@ -1,11 +1,11 @@
 import {  GetStaticProps } from 'next';
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../components/Header';
 import { config, urlFor } from '../../sanity';
 import { Post } from '../../typings';
 import PortableText from 'react-portable-text'
 import {useForm, SubmitHandler} from 'react-hook-form'
-
+import Comments from '../../components/Comments';
 
 interface IFormInput{
     _id: string,
@@ -17,21 +17,26 @@ interface Props{
     post:Post
 }
 function Post({ post }: Props) {
+    
+    const [submitted, setSubmitted] = useState(false)
+    console.log(post)
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>()
     
-    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-        await fetch('/api/createComment',{
+    const onSubmit: SubmitHandler<IFormInput> =  (data) => {
+         fetch('/api/createComment',{
             method: 'POST',
             body:JSON.stringify(data),
         }).then(() => {
             console.log(data)
+            setSubmitted(true)
         }).catch((error) => {
             console.log(error)
+            setSubmitted(false)
         })
     }
     
   return (
-      <main>
+      <div>
           <Header />
           <img
               className='w-full h-80 object-cover'
@@ -72,10 +77,16 @@ function Post({ post }: Props) {
                   />
               </div>
           </article>
+
           <hr className='max-w-lg my-5 mx-auto border border-cyan-500' />
-          
-          <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 max-w-2xl mx-auto mb-10 '>
+          {submitted ? (
+              <div className='flex flex-col my-10 py-10 p-5 bg-cyan-500 text-white max-w-2xl mx-auto'>
+                  <h1 className='text-3xl font-bold '>Thank you for submitting your comment</h1>    
+                  <p>Once it has been approved, it will appear here</p>
+              </div>
               
+          ) : (
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-5 max-w-2xl mx-auto mb-10 '>
               <h3 className='text-sm text-cyan-600'>Enjoyed this article?</h3>
               <h4 className='text-4xl font-semibold'>Leave a comment below</h4>
               <hr className='py-3 mt-2' />
@@ -109,17 +120,22 @@ function Post({ post }: Props) {
                       placeholder='John Doe'
                       typeof='text'
                       rows={8}/>
-              </label>
+                      </label>
+                      
               <div className='flex flex-col p-5'>
               {errors.name && (<span className='text-red-500'>- The name field is required</span>)}
               {errors.email && (<span className='text-red-500'>- The email field is required</span>)}
               {errors.comment && (<span className='text-red-500'>- The comment field is required</span>)}    
-              </div>
+                      </div>
+                      
               <button className='bg-cyan-500 rounded-lg py-2 px-4 text-white hover:bg-cyan-600 font-semibold'>Submit</button>
-              
-              
-          </form>
-</main>
+                </form>        
+          )}
+          <Comments post={post} />
+          
+
+          
+</div>
   )
 }
 
