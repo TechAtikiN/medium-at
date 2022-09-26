@@ -6,7 +6,8 @@ import Header from '../components/Header'
 import Posts from '../components/Posts'
 import {  urlFor , config} from '../sanity'
 import { Post } from '../typings'
-
+import Footer from '../components/Footer'
+import Collage from '../components/Collage'
 interface Props{
   posts:[Post]
 }
@@ -22,6 +23,8 @@ export default function Home({ posts }: Props) {
       <Header/>
       <Banner />
       <Posts posts={posts} />
+      <Collage />
+      <Footer/>
 
     </div>
   )

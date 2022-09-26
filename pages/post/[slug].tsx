@@ -6,7 +6,7 @@ import { Post } from '../../typings';
 import PortableText from 'react-portable-text'
 import {useForm, SubmitHandler} from 'react-hook-form'
 import Comments from '../../components/Comments';
-
+import Footer from '../../components/Footer';
 interface IFormInput{
     _id: string,
     name: string;
@@ -14,7 +14,7 @@ interface IFormInput{
     comment: string;
 }
 interface Props{
-    post:Post
+    post: Post;
 }
 function Post({ post }: Props) {
     
@@ -35,21 +35,39 @@ function Post({ post }: Props) {
         })
     }
     
+    const tags=['travel', 'adventure','scenic', 'wildlife', 'explore' ]
+
   return (
-      <div>
+      <div className='bg-white'>
           <Header />
+          {/* {Banner} */}
           <img
               className='w-full h-80 object-cover'
               src={urlFor(post.mainImage).url()} />
-          <article className='max-w-3xl mx-auto p-5'>
-              <h1 className='text-3xl mt-10 mb-3'>{post.title}</h1> 
-              <h2 className='text-xl font-light text-gray-500 mb-2'>{post.description}</h2>
-              <div className='flex items-center space-x-2'>
+          
+          {/* {Blog} */}
+          <article className='max-w-3xl mx-auto p-5 border-2 mt-2 shadow-md '>
+              <div className='text-center '>
+              <span className='font-extralight'>Published at {new Date(post._createdAt).toLocaleDateString()} {new Date(post._createdAt).toLocaleTimeString()}</span>
+              <h1 className='text-4xl font-bold mb-3'>{post.title}</h1> 
+              <h2 className='text-xl font-light text-gray-500 mb-2 border-l-2 border-cyan-400 italic mr-2 ml-2'>{post.description}</h2>
+              <div className='flex items-center space-x-2 text-center pb-3'>
                   <img
                       className='h-10 w-10 rounded-full'
                       src={urlFor(post.author.image).url()}
                   />
-                  <p className='font-extralight text-sm'>Blog post by<span className='font-semibold px-1 text-gray-600'>{post.author.name}</span>Published at {new Date(post._createdAt).toLocaleString()}</p>
+                  <p className='font-extralight text-sm '>Blog post by
+                      <span className='font-semibold px-1 text-gray-600'>{post.author.name}
+                          </span></p>   
+                      {/* {add icons} */}
+                      <div className='flex'>
+                          </div>
+                  </div>
+
+                  {tags.map((tag) => (
+                      <button key={tag} className='px-3 py-2 shadow-cyan-700  text-gray-800 bg-gray-200 rounded-md mx-3'>{tag}</button>
+                  ))}
+
               </div>
               <div className='mt-10'>
                   <PortableText
@@ -79,6 +97,8 @@ function Post({ post }: Props) {
           </article>
 
           <hr className='max-w-lg my-5 mx-auto border border-cyan-500' />
+
+          {/* {Add Comments} */}
           {submitted ? (
               <div className='flex flex-col my-10 py-10 p-5 bg-cyan-500 text-white max-w-2xl mx-auto'>
                   <h1 className='text-3xl font-bold '>Thank you for submitting your comment</h1>    
@@ -131,15 +151,13 @@ function Post({ post }: Props) {
               <button className='bg-cyan-500 rounded-lg py-2 px-4 text-white hover:bg-cyan-600 font-semibold'>Submit</button>
                 </form>        
           )}
+
+          {/* {Comments} */}
           <Comments post={post} />
-          
-
-          
-</div>
-  )
-}
-
-export default Post
+                <Footer/>
+        </div>
+        )
+    }
 
 export const getStaticPaths = async () => {
     const query = `*[_type =='post']{
@@ -194,3 +212,5 @@ body
         revalidate: 60
     }
 }
+
+export default Post

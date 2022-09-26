@@ -10,7 +10,7 @@ function Posts({ posts }: Props) {
     console.log(posts)
   return (
       <div className=' max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3
-      md:gap-6 p-2 md:p-6'>
+      md:gap-6 p-2 md:p-8'>
           {posts.map((post) => (
               <Link href={`/post/${post.slug.current}`}>
                     <div className='bg-gray-100 shadow-lg border rounded-xl group cursor-pointer overflow-hidden'>
@@ -24,7 +24,7 @@ function Posts({ posts }: Props) {
                         <p className='text-2xl  font-bold p-2 ml-7'>{post.title}</p>
                         <p className='px-3 mx-5 text-center'>{post.description}</p>
                           </div>
-                          <div className='flex space-x-3 py-3 justify-center'>
+                          <div className='flex items-center space-x-3 py-3 justify-center'>
                           <img
                               className='h-12 w-12 rounded-full'
                               src={urlFor(post.author.image).url()}
