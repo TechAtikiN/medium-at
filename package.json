@@ -1,35 +1,41 @@
 {
-  "private": true,
+  "name": "mediumat",
+  "version": "1.0.0",
+  "description": "This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).",
+  "main": "next.config.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechAtikiN/medium-at.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechAtikiN/medium-at/issues"
+  },
+  "homepage": "https://github.com/TechAtikiN/medium-at#readme",
   "dependencies": {
     "@badrap/bar-of-progress": "^0.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/react": "^2.0.11",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
-    "next": "latest",
+    "next": "^12.3.1",
     "next-sanity": "^0.8.4",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "^18.2.0",
     "react-hook-form": "^7.36.1",
     "react-portable-text": "^0.5.1",
     "sanity": "^2.33.2"
   },
   "devDependencies": {
-    "@types/node": "17.0.35",
-    "@types/react": "18.0.9",
-    "@types/react-dom": "18.0.5",
+    "@types/node": "18.7.23",
+    "@types/react": "^18.0.21",
     "autoprefixer": "^10.4.12",
-    "eslint": "8.24.0",
-    "eslint-config-next": "12.3.1",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
-    "typescript": "4.7.2"
+    "typescript": "^4.8.3"
   }
 }

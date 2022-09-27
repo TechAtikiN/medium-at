@@ -1,5 +1,4 @@
 import React from "react";
-import { HeartIcon, ChatAltIcon } from '@heroicons/react/solid'
 import Image from "next/image";
 function Banner() {
   return (
@@ -22,10 +21,10 @@ function Banner() {
                   <div>
                       
                       <div className="text-white flex justify-around">
-                      <HeartIcon className="h-6 w-6  "/> 45 likes    
+                      {/* <HeartIcon className="h-6 w-6  "/> 45 likes     */}
                       </div>
                   </div >
-                  <div className="text-white flex" ><ChatAltIcon className="h-6 w-6" /> 4 Comments</div>
+                  {/* <div className="text-white flex" ><ChatAltIcon className="h-6 w-6" /> 4 Comments</div> */}
               </div>
               <button className=" px-3 py-2 bg-gray-400 text-black rounded-lg cursor-pointer  align-middle mt-7 ml-10 hover:bg-white font-semibold">Read this blog</button>
           </div>

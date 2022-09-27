@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 import { Post } from '../typings'
-import {urlFor} from '../sanity'
+import { urlFor } from '../sanity'
+import Image from 'next/image'
 
 interface Props{
   posts:[Post]
@@ -14,11 +15,11 @@ function Posts({ posts }: Props) {
           {posts.map((post) => (
               <Link href={`/post/${post.slug.current}`}>
                     <div className='bg-gray-100 shadow-lg border rounded-xl group cursor-pointer overflow-hidden'>
-                        <img
-                            src={urlFor(post.mainImage).url()}
+                        <Image width={400} height={300} src={urlFor(post.mainImage).url()}
                           className="h-60 w-full object-cover p-3 group-hover:scale-105
-                             transition-transform duration-150 ease-in-out"
-                      />
+                             transition-transform duration-150 ease-in-out"></Image>
+                            
+                      
                       <div>
                       <div className=' justify-between '>
                         <p className='text-2xl  font-bold p-2 ml-7'>{post.title}</p>
