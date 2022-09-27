@@ -1,19 +1,22 @@
 import Link from "next/link"
-
+import Image from "next/image"
 function Header() {
   return (
       <header className="flex justify-between p-1 max-w-7xl mx-auto bg-cyan-200">
-          <div className="flex items-center space-x-5">
+          {/* <div>
               <Link href='/'>
-                  <img
-                      className="w-40 object-contain cursor-pointer"
-                      src="https://links.papareact.com/yvf" />
+                  <Image
+                      layout="fill"
+                      src='/mediumat.png'
+                      ></Image>
               </Link>
-</div>
+          </div> */}
+              
+           
               <div className="space-x-8 p-2  hidden md:inline-flex justify-center font-semibold  text-teal-900  ">
-                  <h3 className="hover:underline px-3 py-2  ">Contact</h3>
-                  <h3 className="hover:underline px-3 py-2   ">Follow</h3>
-                  <h3 className="hover:underline px-3 py-2   ">About</h3>
+                  <h3 className="hover:underline px-3 py-2">Contact</h3>
+                  <h3 className="hover:underline px-3 py-2">Follow</h3>
+                  <h3 className="hover:underline px-3 py-2">About</h3>
               </div>
           
           <div className="flex items-center space-x-5 font-semibold">
