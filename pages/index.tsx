@@ -13,7 +13,7 @@ interface Props{
 }
 
 export default function Home({ posts }: Props) {
-  // console.log(urlFor(posts[0].mainImage.asset.url))
+  console.log(posts)
   return (
     <div className="">
       <Head>
@@ -36,6 +36,7 @@ export const getServerSideProps = async () => {
   title,
   description,
   mainImage,
+  comments,
   slug,
   author->{
   name, 

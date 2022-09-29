@@ -7,6 +7,7 @@ import PortableText from 'react-portable-text'
 import {useForm, SubmitHandler} from 'react-hook-form'
 import Comments from '../../components/Comments';
 import Footer from '../../components/Footer';
+import {motion, useScroll} from 'framer-motion'
 interface IFormInput{
     _id: string,
     name: string;
@@ -17,6 +18,7 @@ interface Props{
     post: Post;
 }
 function Post({ post }: Props) {
+    const { scrollYProgress } = useScroll()
     
     const [submitted, setSubmitted] = useState(false)
     console.log(post)
@@ -38,7 +40,11 @@ function Post({ post }: Props) {
     const tags=['travel', 'adventure','scenic', 'wildlife', 'explore' ]
 
   return (
-      <div className='bg-white'>
+      <div>
+        <motion.div
+        className="top-0 left-0 right-0 h-2 fixed bg-blue-800 origin-[0%]"
+        style={{ scaleX: scrollYProgress }}
+      />
           <Header />
           {/* {Banner} */}
           <img

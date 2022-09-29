@@ -3,7 +3,7 @@ import React from 'react'
 import { Post } from '../typings'
 import { urlFor } from '../sanity'
 import Image from 'next/image'
-
+import {motion} from 'framer-motion'
 interface Props{
   posts:[Post]
 }
@@ -14,12 +14,18 @@ function Posts({ posts }: Props) {
       md:gap-6 p-2 md:p-8'>
           {posts.map((post) => (
               <Link href={`/post/${post.slug.current}`}>
-                    <div className='bg-gray-100 shadow-lg border rounded-xl group cursor-pointer overflow-hidden'>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.7,
+                  ease:[0,0.71,0.2,1.01]
+                }}
+                className='bg-gray-100 shadow-lg border rounded-xl group cursor-pointer overflow-hidden'>
                         <Image width={400} height={300} src={urlFor(post.mainImage).url()}
                           className="h-60 w-full object-cover p-3 group-hover:scale-105
                              transition-transform duration-150 ease-in-out"></Image>
-                            
-                      
                       <div>
                       <div className=' justify-between '>
                         <p className='text-2xl  font-bold p-2 ml-7'>{post.title}</p>
@@ -35,7 +41,7 @@ function Posts({ posts }: Props) {
                           </div>
                       </div>
                         <button className='px-3 py-3  bg-black text-white hover:text-gray-300 rounded-lg my-5 mx-5 w-56 '>Read this artice</button>
-                    </div>
+                    </motion.div>
                   </Link>      
            
           ))}

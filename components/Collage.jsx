@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 function Collage() {
     return (
         <div className=' bg-gray-900 max-w-7xl mx-auto '
@@ -10,7 +11,15 @@ function Collage() {
                 <button className='px-3 py-2 text-gray-900 hover:underline bg-gray-100 font-bold w-1/4 rounded-md text-lg hover:bg-gray-400'>Get Started</button>
             </div>
             <div className='grid grid-cols-4 '>
-                <div className='flex flex-col space-y-4 px-5'>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.7,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                    className='flex flex-col space-y-4 px-5'>
                     <Image
                         className='relative '
                         height={200}
@@ -36,8 +45,17 @@ function Collage() {
                         alt="collageimage"
                         src="https://images.unsplash.com/photo-1610886420404-7f72bc3d57d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIwfGFldTZyTC1qNmV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"></Image>
 
-                </div>
-                <div className='flex flex-col py-16 pr-5 '>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.7,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                    className='flex flex-col py-16 pr-5 '
+                >
                     <Image
                         className='relative'
                         height={200}
@@ -63,8 +81,16 @@ function Collage() {
                         alt="collageimage"
                         src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHRlbXBsYXRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"></Image>
 
-                </div>
-                <div className='flex flex-col py-7 pr-5'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.7,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                    className='flex flex-col py-7 pr-5'>
                     <Image
                         className='relative'
                         height={200}
@@ -90,8 +116,16 @@ function Collage() {
                         alt="collageimage"
                         src="https://images.unsplash.com/photo-1543269665-7821011040ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzEyfHx3b3JrfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"></Image>
 
-                </div>
-                <div className='flex flex-col py-20 pr-5'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.7,
+                        ease: [0, 0.71, 0.2, 1.01]
+                    }}
+                    className='flex flex-col py-20 pr-5'>
                     <Image
                         className='relative'
                         height={200}
@@ -117,7 +151,7 @@ function Collage() {
                         alt="collageimage"
                         src=" https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"></Image>
                     s
-                </div>
+                </motion.div>
 
             </div>
 
