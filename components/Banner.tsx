@@ -3,7 +3,7 @@ import Image from "next/image";
 function Banner() {
     return (
         <div className="flex max-w-7xl mx-auto">
-            <div className=" ">
+            <div className="">
                 <Image
                     className=""
                     height={800}
