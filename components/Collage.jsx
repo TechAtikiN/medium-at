@@ -3,12 +3,19 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 function Collage() {
     return (
-        <div className=' bg-gray-900 max-w-7xl mx-auto '
-        >
+        <div className=' dark:bg-gray-900 bg-slate-500 max-w-7xl mx-auto'>
             <div className='text-white text-center '>
-                <h1 className='text-gray-200 hover:text-gray-400 text-7xl ml-10 mt-10 font-serif pt-10 pl-10 pr-10'>YOUR DAILY DOSE OF MOTIVATION</h1>
-                <p className='text-gray-200 text-xl p-10 hover:text-gray-400'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit placeat dolorum excepturi est nisi, possimus corrupti nostrum nobis veritatis dolorem. Illum ab laboriosam dicta soluta dolorum dolor maiores in! Fugit!</p>
-                <button className='px-3 py-2 text-gray-900 hover:underline bg-gray-100 font-bold w-1/4 rounded-md text-lg hover:bg-gray-400'>Get Started</button>
+                <h1
+                    className='text-gray-200 dark:hover:text-gray-400 text-7xl ml-10  font-serif pt-10 pl-10 pr-10'>
+                    YOUR DAILY DOSE OF MOTIVATION
+                </h1>
+                <p className='text-gray-200 text-xl p-10 hover:text-gray-400'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit placeat dolorum excepturi est nisi, possimus corrupti nostrum nobis veritatis dolorem. Illum ab laboriosam dicta soluta dolorum dolor maiores in! Fugit!
+                </p>
+                <button
+                    className='px-3 py-2 mb-16 mt-14 text-gray-900 hover:underline bg-gray-100 font-bold w-1/4 rounded-md text-lg hover:bg-gray-400'>
+                    Get Started
+                </button>
             </div>
             <div className='grid grid-cols-4 '>
                 <motion.div
@@ -19,7 +26,7 @@ function Collage() {
                         delay: 0.7,
                         ease: [0, 0.71, 0.2, 1.01]
                     }}
-                    className='flex flex-col space-y-4 px-5'>
+                    className='flex flex-col  border-x-8 border-dashed border-gray-700 mx-4'>
                     <Image
                         className='relative '
                         height={200}
@@ -54,7 +61,7 @@ function Collage() {
                         delay: 0.7,
                         ease: [0, 0.71, 0.2, 1.01]
                     }}
-                    className='flex flex-col py-16 pr-5 '
+                    className='flex flex-col  mr-6 border-x-8 border-dashed border-gray-700 '
                 >
                     <Image
                         className='relative'
@@ -90,7 +97,7 @@ function Collage() {
                         delay: 0.7,
                         ease: [0, 0.71, 0.2, 1.01]
                     }}
-                    className='flex flex-col py-7 pr-5'>
+                    className='flex flex-col mr-6 border-x-8 border-dashed border-gray-700 '>
                     <Image
                         className='relative'
                         height={200}
@@ -125,7 +132,7 @@ function Collage() {
                         delay: 0.7,
                         ease: [0, 0.71, 0.2, 1.01]
                     }}
-                    className='flex flex-col py-20 pr-5'>
+                    className='flex flex-col  mr-6 border-x-8 border-dashed border-gray-700 '>
                     <Image
                         className='relative'
                         height={200}
@@ -150,7 +157,7 @@ function Collage() {
                         width={150}
                         alt="collageimage"
                         src=" https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdvcmt8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"></Image>
-                    s
+
                 </motion.div>
 
             </div>

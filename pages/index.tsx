@@ -4,27 +4,37 @@ import Link from 'next/link'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Posts from '../components/Posts'
-import {  urlFor , config} from '../sanity'
+import { urlFor, config } from '../sanity'
 import { Post } from '../typings'
 import Footer from '../components/Footer'
 import Collage from '../components/Collage'
-interface Props{
-  posts:[Post]
+import Display from '../components/sections/Display'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../pages/redux/store'
+
+interface Props {
+  posts: [Post]
 }
 
 export default function Home({ posts }: Props) {
+
+  const value = useSelector((state: RootState) => state.theme.value)
+
+
   console.log(posts)
   return (
-    <div className="">
+
+    <div className={`${value == 'dark' ? 'dark' : ''} `} >
       <Head>
         <title>MediumAt </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header/>
+      <Header />
       <Banner />
       <Posts posts={posts} />
       <Collage />
-      <Footer/>
+      <Display />
+      <Footer />
 
     </div>
   )
